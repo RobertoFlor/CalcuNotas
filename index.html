@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+    <div class = "Calculadora">
+      
+        <h1 id="p1">Parcial 1</h1>
+        <input type="number" id="nota1" value="0" class="numero-input" onclick="limpiarCampo1()">
+        <h1>Parcial 2</h1>
+        <input type="number" id="nota2" value="0" class="numero-input" onclick="limpiarCampo2()">
+        <h1>Parcial 3</h1>
+        <input type="number" id="nota3" value="0" class="numero-input" onclick="limpiarCampo3()">
+
+
+
+
+
+        <button id="Limpiar" class="btn" onclick="limpiarCampos()">Limpiar</button>
+        <button id="Calcular" class="btn" onclick="calcular()">Calcular</button>
+        
+
+
+
+
+        <div id="modal_container" class="modal-container">
+          <div class="modal">
+            <p>
+              <h1>Calificacion 2</h1>
+              <div class="calif2" id="resultado2"></div> 
+              <h1>Calificacion 3</h1>
+              <div class="calif3" id="resultado3"></div></p>
+              <h1>Calificacion 4</h1>
+              <div class="calif4" id="resultado4"></div></p>
+              <h1>Calificacion 5</h1>
+              <div class="calif5" id="resultado5"></div></p>
+              <h1>Promedio </h1>   
+              <div class="promedio" id="promedio"></div></p>
+
+
+            <button id="close" class="btn" onclick="limpiarCampos()">Cerrar</button>
+          </div>
+        </div>
+
+    </div>   
+    <script src="./js/main.js"></script>
+</body>
+</html>
