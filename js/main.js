@@ -11,8 +11,35 @@ const close = document.getElementById('close');
 
 
 
-//PopUp
-open.addEventListener('click', () => {
+
+
+
+//Calculo de la nota
+function calcular()
+{
+
+  //Tomamos los datos ingresados y verificamos que por lo menos dos de los tres datos sean distintos a cero 
+  const input1 = Number(document.getElementById("nota1").value);
+  const input2 = Number(document.getElementById("nota2").value);
+  const input3 = Number(document.getElementById("nota3").value);
+  const nonZeroCount = [input1, input2, input3].filter(value => value !== 0).length;
+
+  if (nonZeroCount < 2)
+  {
+    alert("Debe de ingresar por lo menos 2 notas ...");
+    
+    ["nota1", "nota2", "nota3"].forEach(function(id) {
+      document.getElementById(id).value = "0";
+    });
+    
+
+  }
+
+  //Si cumple con la condicion inicia con el calculo iniciando con el PopUp
+  else
+  {
+  //PopUp
+  open.addEventListener('click', () => {
     modal_container.classList.add('show');  
   });
   
@@ -20,15 +47,10 @@ open.addEventListener('click', () => {
     modal_container.classList.remove('show');
   });
 
-
-
-//Calculo de la nota
-function calcular()
-{
-  var numero1 = parseInt(document.getElementById("nota1").value);
-  var numero2 = parseInt(document.getElementById("nota2").value);
-  var numero3 = parseInt(document.getElementById("nota3").value);
-
+    
+    var numero1 = parseInt(document.getElementById("nota1").value);
+    var numero2 = parseInt(document.getElementById("nota2").value);
+    var numero3 = parseInt(document.getElementById("nota3").value);
 
 
   //Tomar el mayor de los 3 datos
@@ -45,21 +67,23 @@ function calcular()
 
   //Suma y promedio de las 2 mejores notas
   var TotalP = (mayor + segundoMayor) / 2 * 0.6
-
-
   // Realizar cálculos
   var resultado2 = (60 - TotalP)/0.4;
   var resultado3 = (70 - TotalP )/0.4;
   var resultado4 = (80 - TotalP)/0.4;
   var resultado5= (90 - TotalP)/0.4;
   var promedio = (numero1 + numero2 + numero3) /3;
+}
 
-  
+
+
   //Para que la nota no pase 100%
-  resultado5 = resultado5 >= 100 ? "" : resultado5;
-  resultado4 = resultado4 >= 100 ? "" : resultado4;
-  resultado3 = resultado3 >= 100 ? "" : resultado3;
-  resultado2 = resultado2 >= 100 ? "" : resultado2;
+  const resultados = [resultado5, resultado4, resultado3, resultado2];
+  for (let i = 0; i < resultados.length; i++) {
+    resultados[i] = resultados[i] >= 100 ? "" : resultados[i];
+  }
+  // Desestructuración
+  [resultado5, resultado4, resultado3, resultado2] = resultados;
 
 
   // Actualizar resultados en el HTML
@@ -71,6 +95,8 @@ function calcular()
   }
 
 
+
+  
   //funcion para limpiar los campos
   function limpiarCampos()
   {
@@ -100,3 +126,4 @@ function calcular()
       inputNumero3.value = "";
     }
   }
+  
