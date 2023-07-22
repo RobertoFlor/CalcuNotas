@@ -54,24 +54,13 @@ function calcular()
   var resultado5= (90 - TotalP)/0.4;
   var promedio = (numero1 + numero2 + numero3) /3;
 
-  //Verificar
+  
   //Para que la nota no pase 100%
-  if (resultado5>=100)
-  {
-    resultado5 =""
-  }
-  if (resultado4>=100)
-  {
-    resultado4 =""
-  }
-  if (resultado3>=100)
-  {
-    resultado3 =""
-  }
-  if (resultado2>=100)
-  {
-    resultado2 =""
-  }
+  resultado5 = resultado5 >= 100 ? "" : resultado5;
+  resultado4 = resultado4 >= 100 ? "" : resultado4;
+  resultado3 = resultado3 >= 100 ? "" : resultado3;
+  resultado2 = resultado2 >= 100 ? "" : resultado2;
+
 
   // Actualizar resultados en el HTML
   document.getElementById("resultado2").textContent =resultado2.toFixed(2);
