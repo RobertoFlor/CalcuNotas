@@ -45,6 +45,11 @@ function calcular()
   
   close.addEventListener('click', () => {
     modal_container.classList.remove('show');
+    document.getElementById("resultado2").value = "";
+    document.getElementById("resultado3").value = "";
+    document.getElementById("resultado4").value = "";
+    document.getElementById("resultado5").value = "";
+    document.getElementById("promedio").value = "";
   });
 
     
