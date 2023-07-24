@@ -1,5 +1,3 @@
-const pantalla1 = document.querySelector(".pantalla1", ".pantalla2", "pantalla3");
-
 //Funcion de los botones 
 const botones = document.querySelectorAll(".btn");
 
@@ -7,11 +5,6 @@ const botones = document.querySelectorAll(".btn");
 const open = document.getElementById('Calcular');
 const modal_container = document.getElementById('modal_container');
 const close = document.getElementById('close');
-
-
-
-
-
 
 
 //Calculo de la nota
@@ -30,26 +23,30 @@ function calcular()
     
     ["nota1", "nota2", "nota3"].forEach(function(id) {
       document.getElementById(id).value = "0";
-    });
-    
-
+    });    
+    return window.location.href = "index.html";    
   }
 
   //Si cumple con la condicion inicia con el calculo iniciando con el PopUp
-  else
+  else if (nonZeroCount > 2)
   {
+
   //PopUp
   open.addEventListener('click', () => {
     modal_container.classList.add('show');  
   });
   
-  close.addEventListener('click', () => {
+  close.addEventListener('click', () =>
+  {
     modal_container.classList.remove('show');
-    document.getElementById("resultado2").value = "";
-    document.getElementById("resultado3").value = "";
-    document.getElementById("resultado4").value = "";
-    document.getElementById("resultado5").value = "";
-    document.getElementById("promedio").value = "";
+
+
+    //Verificar si es necesiario
+    document.getElementById("resultado2").value = "0";
+    document.getElementById("resultado3").value = "0";
+    document.getElementById("resultado4").value = "0";
+    document.getElementById("resultado5").value = "0";
+    document.getElementById("promedio").value = "0";
   });
 
     
@@ -99,8 +96,7 @@ function calcular()
   document.getElementById("promedio").textContent =promedio.toFixed(2);
   }
 
-
-
+  
   
   //funcion para limpiar los campos
   function limpiarCampos()
@@ -111,7 +107,7 @@ function calcular()
   }
 
   
-  //Limpiar campos seteados a cero en notas 
+  //Limpiar al dar clic a campos seteados a cero en notas 
   function limpiarCampo1() {
     var inputNumero1 = document.getElementById("nota1");
     if (inputNumero1.value === "0") {
