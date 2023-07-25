@@ -23,7 +23,7 @@ function calcular()
 
   if ((numero1 > 100 ) || (numero2 > 100) || (numero3 > 100))
   {
-    alert("Afedo gei");   
+    alert("La nota no puede ser mayor a 100 ...");   
     return window.location.href = "index.html"; 
   }
 
