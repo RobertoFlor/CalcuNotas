@@ -14,19 +14,22 @@ const close = document.getElementById('close');
 function calcular()
 {
   //Tomamos los datos ingresados y verificamos que por lo menos dos de los tres datos sean distintos a cero 
+  //Agregar trim 
   const numero1 = Number(document.getElementById("nota1").value);
   const numero2 = Number(document.getElementById("nota2").value);
   const numero3 = Number(document.getElementById("nota3").value);
 
   const nonZeroCount = [numero1, numero2, numero3].filter(value => value !== 0).length;
 
+  if ((numero1 > 100 ) || (numero2 > 100) || (numero3 > 100))
+  {
+    alert("Afedo gei");   
+    return window.location.href = "index.html"; 
+  }
+
   if (nonZeroCount < 2)
   {
-    alert("Debe de ingresar por lo menos 2 notas ...");
-    
-    ["nota1", "nota2", "nota3"].forEach(function(id) {
-      document.getElementById(id).value = "0";
-    });    
+    alert("Debe de ingresar por lo menos 2 notas ...");   
     return window.location.href = "index.html";    
   }
 
@@ -42,6 +45,7 @@ function calcular()
     mayor = numero3;
     segundoMayor = numero1 >= numero2 ? numero1 : numero2;
   }
+  
 
 
   //Suma y promedio de las 2 mejores notas
