@@ -11,32 +11,39 @@ const close = document.getElementById('close');
 function calcular()
 {
   //Tomamos los datos ingresados y verificamos que por lo menos dos de los tres datos sean distintos a cero 
-  //Agregar trim 
-  const numero1 = Number(document.getElementById("nota1").value);
-  const numero2 = Number(document.getElementById("nota2").value);
-  const numero3 = Number(document.getElementById("nota3").value);
+  const numero1 = Number(document.getElementById("nota1").value.trim());
+  const numero2 = Number(document.getElementById("nota2").value.trim());
+  const numero3 = Number(document.getElementById("nota3").value.trim());
 
   //Limita para no ingresar notas mayores a 100
   if ((numero1 > 100) || (numero2 > 100) || (numero3 > 100))
   {
-    alert("La nota no puede ser mayor a 100 ...");   
-    return window.location.href = "index.html"; 
+    alert("La nota no puede ser mayor a 100 ...");    
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById(`nota${i}`).value = 0;
+    }
+    return;
   }
-
 
   //Limita para no ingresar numeros negativos
   else if ((numero1 < 0 ) || (numero2 < 0) || (numero3 < 0 ))
   {
-    alert("La nota no puede ser un numero negativo ...");   
-    return window.location.href = "index.html"; 
+    alert("La nota no puede ser un numero negativo ..."); 
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById(`nota${i}`).value = 0;
+    } 
+    return;
   }
 
   //Validador de notas
   const nonZeroCount = [numero1, numero2, numero3].filter(value => value !== 0).length;
   if (nonZeroCount < 2)
   {
-    alert("Debe de ingresar por lo menos 2 notas ...");   
-    return window.location.href = "index.html";    
+    alert("Debe de ingresar por lo menos 2 notas ...");  
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById(`nota${i}`).value = 0;
+    }
+    return;
   }
 
 
@@ -97,17 +104,18 @@ function calcular()
   //funcion para limpiar los campos
   function limpiarCampos()
   {
-    document.getElementById("nota1").value = "0";
-    document.getElementById("nota2").value = "0";
-    document.getElementById("nota3").value = "0";
-    document.getElementById("resultado2").value = "0";
-    document.getElementById("resultado3").value = "0";
-    document.getElementById("resultado4").value = "0";
-    document.getElementById("resultado5").value = "0";
-    document.getElementById("promedio").value = "0";
+    document.getElementById("nota1").value = 0;
+    document.getElementById("nota2").value = 0;
+    document.getElementById("nota3").value = 0;
+    document.getElementById("resultado2").value = 0;
+    document.getElementById("resultado3").value = 0;
+    document.getElementById("resultado4").value = 0;
+    document.getElementById("resultado5").value = 0;
+    document.getElementById("promedio").value = 0;
   }
 
   
+
   //Limpiar al dar clic a campos seteados a cero en notas 
   function limpiarCampo1() {
     var inputNumero1 = document.getElementById("nota1");
@@ -121,7 +129,6 @@ function calcular()
       inputNumero2.value = "";
     }
   }
-
   function limpiarCampo3() {
     var inputNumero3 = document.getElementById("nota3");
     if (inputNumero3.value === "0") {
