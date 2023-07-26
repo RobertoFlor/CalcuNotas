@@ -5,7 +5,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; 
 }
 
-
 *{
     margin:0;
     padding: 0;
@@ -51,11 +50,12 @@ body{
     font-family: monospace;
     font-weight: 600;
     color: black;
+    width: 80%;
     
 }
 
 
-.calif2
+.calif
 {
     grid-column: 1 / -1;
     background-color: white;
@@ -70,51 +70,6 @@ body{
     justify-content: center;
 }
 
-.calif3
-{
-    grid-column: 1 / -1;
-    background-color: white;
-    padding: 1.5rem;
-    font-size: 2rem;
-    text-align: right;
-    border-radius: .5rem;
-    margin-bottom: 1rem;
-    font-family: monospace;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-}
-
-.calif4
-{
-    grid-column: 1 / -1;
-    background-color: white;
-    padding: 1.5rem;
-    font-size: 2rem;
-    text-align: right;
-    border-radius: .5rem;
-    margin-bottom: 1rem;
-    font-family: monospace;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-}
-
-.calif5
-{
-    grid-column: 1 / -1;
-    background-color: white;
-    padding: 1.5rem;
-    font-size: 2rem;
-    text-align: right;
-    border-radius: .5rem;
-    margin-bottom: 1rem;
-    font-family: monospace;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-
-}
 
 .promedio
 {
@@ -132,23 +87,37 @@ body{
 
 }
 
-.btn{
-    background-color: yellow;
-    border: none;
-    border-radius: .5rem;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 26px;
+#Limpiar{
+  background-color: yellow;
+  border: none;
+  border-radius: .5rem;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
 
-
-
 #Calcular{
-  background-color: red;
+    background-color: red;
+    border: none;
+    border-radius: .5rem;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+#close{
+    background-color: red;
     border: none;
     border-radius: .5rem;
     color: white;
@@ -156,7 +125,7 @@ body{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 26px;
+    font-size: 30px;
 }
 
 .modal-container {
@@ -201,26 +170,6 @@ body{
   font-size: 14px;
 }
 
-#close{
-    background-color: red;
-      border: none;
-      border-radius: .5rem;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 26px;
-  }
-
-
-  #error-message {
-    display: none;
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
-  .contenedor {
-    width: 100%;
-  }
+.contenedor {
+  width: 100%;
+}
