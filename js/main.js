@@ -7,9 +7,6 @@ const modal_container = document.getElementById('modal_container');
 const close = document.getElementById('close');
 
 
-
-
-
 //Calculo de la nota
 function calcular()
 {
@@ -19,14 +16,23 @@ function calcular()
   const numero2 = Number(document.getElementById("nota2").value);
   const numero3 = Number(document.getElementById("nota3").value);
 
-  const nonZeroCount = [numero1, numero2, numero3].filter(value => value !== 0).length;
-
-  if ((numero1 > 100 ) || (numero2 > 100) || (numero3 > 100))
+  //Limita para no ingresar notas mayores a 100
+  if ((numero1 > 100) || (numero2 > 100) || (numero3 > 100))
   {
     alert("La nota no puede ser mayor a 100 ...");   
     return window.location.href = "index.html"; 
   }
 
+
+  //Limita para no ingresar numeros negativos
+  else if ((numero1 < 0 ) || (numero2 < 0) || (numero3 < 0 ))
+  {
+    alert("La nota no puede ser un numero negativo ...");   
+    return window.location.href = "index.html"; 
+  }
+
+  //Validador de notas
+  const nonZeroCount = [numero1, numero2, numero3].filter(value => value !== 0).length;
   if (nonZeroCount < 2)
   {
     alert("Debe de ingresar por lo menos 2 notas ...");   
@@ -85,8 +91,6 @@ function calcular()
     modal_container.classList.remove('show');
     
   });
-
-   
 }
 
 
@@ -103,7 +107,6 @@ function calcular()
     document.getElementById("promedio").value = "0";
   }
 
-  
   
   //Limpiar al dar clic a campos seteados a cero en notas 
   function limpiarCampo1() {
