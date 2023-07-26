@@ -93,9 +93,10 @@ function calcular()
     modal_container.classList.add('show');  
   });
   
+  
   close.addEventListener('click', () =>
   {
-    modal_container.classList.remove('show');
+    return window.location.href = "index.html";
     
   });
 }
@@ -104,14 +105,11 @@ function calcular()
   //funcion para limpiar los campos
   function limpiarCampos()
   {
-    document.getElementById("nota1").value = 0;
-    document.getElementById("nota2").value = 0;
-    document.getElementById("nota3").value = 0;
-    document.getElementById("resultado2").value = 0;
-    document.getElementById("resultado3").value = 0;
-    document.getElementById("resultado4").value = 0;
-    document.getElementById("resultado5").value = 0;
-    document.getElementById("promedio").value = 0;
+    const elementIds = ["nota1", "nota2", "nota3", "resultado2", "resultado3", "resultado4", "resultado5", "promedio"];
+    const value = 0;
+    for (let i = 0; i < elementIds.length; i++) {
+      document.getElementById(elementIds[i]).value = value;
+    }
   }
 
   
