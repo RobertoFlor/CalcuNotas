@@ -5,6 +5,7 @@ const botones = document.querySelectorAll(".btn");
 const open = document.getElementById('Calcular');
 const modal_container = document.getElementById('modal_container');
 const close = document.getElementById('close');
+let condi1, condi2, condi3
 
 
 //Calculo de la nota
@@ -18,21 +19,21 @@ function calcular()
   //Limita para no ingresar notas mayores a 100
   if ((numero1 > 100) || (numero2 > 100) || (numero3 > 100))
   {
-    alert("La nota no puede ser mayor a 100 ...");    
+    alert("La nota no puede ser mayor a 100 ...");
+    condi1 = true    
     for (let i = 1; i <= 3; i++) {
       document.getElementById(`nota${i}`).value = 0;
     }
-    return;
   }
 
   //Limita para no ingresar numeros negativos
   else if ((numero1 < 0 ) || (numero2 < 0) || (numero3 < 0 ))
   {
     alert("La nota no puede ser un numero negativo ..."); 
+    condi2 = true
     for (let i = 1; i <= 3; i++) {
       document.getElementById(`nota${i}`).value = 0;
     } 
-    return;
   }
 
   //Validador de notas
@@ -40,10 +41,10 @@ function calcular()
   if (nonZeroCount < 2)
   {
     alert("Debe de ingresar por lo menos 2 notas ...");  
+    condi3 = true
     for (let i = 1; i <= 3; i++) {
       document.getElementById(`nota${i}`).value = 0;
     }
-    return;
   }
 
 
@@ -88,19 +89,26 @@ function calcular()
   document.getElementById("resultado5").textContent =resultado5.toFixed(2);
   document.getElementById("promedio").textContent =promedio.toFixed(2);
 
+
+}
   //PopUp
   open.addEventListener('click', () => {
-    modal_container.classList.add('show');  
+    if (condi1 === true || condi2 === true || condi3 === true)
+    {
+      window.location.assign("index.html");
+    }
+    else{
+      modal_container.classList.add('show');
+    }
   });
+  
   
   
   close.addEventListener('click', () =>
   {
-    return window.location.href = "index.html";
+    modal_container.classList.remove('show');
     
   });
-}
-
 
   //funcion para limpiar los campos
   function limpiarCampos()
