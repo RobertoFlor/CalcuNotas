@@ -5,7 +5,7 @@ const botones = document.querySelectorAll(".btn");
 const open = document.getElementById('Calcular');
 const modal_container = document.getElementById('modal_container');
 const close = document.getElementById('close');
-let condi1, condi2, condi3
+let condi1= false, condi2= false, condi3= false
 
 
 //Calculo de la nota
