@@ -6,23 +6,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/main.css">
 </head>
+
 <body>
 
     <div class = "Calculadora">
-      
-        <h1 id="p1">Parcial 1</h1>
+
+        <h1>Parcial 1</h1>
         <input type="number" id="nota1" value="0" class="numero-input" onclick="limpiarCampo1()">
         <h1>Parcial 2</h1>
         <input type="number" id="nota2" value="0" class="numero-input" onclick="limpiarCampo2()">
         <h1>Parcial 3</h1>
         <input type="number" id="nota3" value="0" class="numero-input" onclick="limpiarCampo3()">
-
+        
+        <div class="buttons">
         <button id="Limpiar" class="btn" onclick="limpiarCampos()">Limpiar</button>
         <button id="Calcular" class="btn" onclick="calcular()"><p></p><p>Calcular</p><p></p></button>
+      </div>
+    </div>
         
-
-
-
 
         <div id="modal_container" class="modal-container">
           <div class="modal">
@@ -43,7 +44,6 @@
           </div>
         </div>
 
-    </div>   
     <script src="./js/main.js"></script>
 </body>
 </html>
